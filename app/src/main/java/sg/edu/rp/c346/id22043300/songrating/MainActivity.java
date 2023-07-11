@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn_ins = findViewById(R.id.btn_insert);
+        btn_ins = findViewById(R.id.btn_ins);
         etSongTitle = findViewById(R.id.et_st);
         etSinger = findViewById(R.id.et_sn);
         etYear = findViewById(R.id.et_y);

@@ -2,7 +2,9 @@ package sg.edu.rp.c346.id22043300.songrating;
 
 import androidx.annotation.NonNull;
 
-public class Song {
+import java.io.Serializable;
+
+public class Song implements Serializable {
     private int id;
     private String title;
     private String singers;
@@ -27,6 +29,21 @@ public class Song {
 
     public int getStar() { return star; }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setSingers(String singers) {
+        this.singers = singers;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public void setStar(int star) {
+        this.star = star;
+    }
     @NonNull
     @Override
     public String toString() {

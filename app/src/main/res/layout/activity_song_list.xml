@@ -11,6 +11,12 @@
         android:layout_height="wrap_content"
         android:text="BACK" />
 
+    <Button
+        android:id="@+id/btn5stars"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SHOW ALL SONGS WITH 5 STARS" />
+
     <ListView
         android:id="@+id/lv"
         android:layout_width="match_parent"
