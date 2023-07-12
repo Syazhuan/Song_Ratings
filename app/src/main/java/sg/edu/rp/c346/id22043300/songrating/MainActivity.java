@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -62,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
                 // Insert a task
                 db.insertTask(title, singer, finalYear, rating);
 
+                Toast.makeText(MainActivity.this, "Song insert successful",
+                        Toast.LENGTH_SHORT).show();
             }
         });
 

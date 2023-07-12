@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class SongEdit extends AppCompatActivity {
 
@@ -26,6 +27,7 @@ public class SongEdit extends AppCompatActivity {
         btnUpdate = findViewById(R.id.btnUpdate);
         btnDelete = findViewById(R.id.btnDelete);
         btnCancel = findViewById(R.id.btnCancel);
+        etSongID = findViewById(R.id.etSongID);
         etSongTitle = findViewById(R.id.et_st2);
         etSinger = findViewById(R.id.et_sn2);
         etYear = findViewById(R.id.et_y2);
@@ -35,10 +37,10 @@ public class SongEdit extends AppCompatActivity {
         Intent i = getIntent();
         data = (Song) i.getSerializableExtra("data");
 
-        etSongID.setText(String.valueOf(data.getId()));
+        etSongID.setHint(String.valueOf(data.getId()));
         etSongTitle.setText(data.getTitle());
         etSinger.setText(data.getSingers());
-        etYear.setText(String.valueOf(data.getYear()));
+        etYear.setText((data.getYear())+"");
 
         int selected = data.getStar();
 
@@ -61,19 +63,19 @@ public class SongEdit extends AppCompatActivity {
 
                 int rating = 1;
                 int checkedRadioId = rg_no_stars.getCheckedRadioButtonId();
-                if(checkedRadioId == R.id.rb_1s){
+                if(checkedRadioId == R.id.rb_1s_2){
                     rating = 1;
                 }
-                else if(checkedRadioId == R.id.rb_2s){
+                else if(checkedRadioId == R.id.rb_2s_2){
                     rating = 2;
                 }
-                else if(checkedRadioId == R.id.rb_3s){
+                else if(checkedRadioId == R.id.rb_3s_2){
                     rating = 3;
                 }
-                else if(checkedRadioId == R.id.rb_4s){
+                else if(checkedRadioId == R.id.rb_4s_2){
                     rating = 4;
                 }
-                else if(checkedRadioId == R.id.rb_5s){
+                else if(checkedRadioId == R.id.rb_5s_2){
                     rating = 5;
                 }
 
@@ -86,6 +88,9 @@ public class SongEdit extends AppCompatActivity {
                 dbh.updateSong(data);
                 dbh.close();
 
+                Toast.makeText(SongEdit.this, "Song updated successful",
+                        Toast.LENGTH_SHORT).show();
+
                 Intent intent = new Intent(SongEdit.this, SongList.class);
                 startActivity(intent);
             }
@@ -97,6 +102,18 @@ public class SongEdit extends AppCompatActivity {
                 DBHelper dbh = new DBHelper(SongEdit.this);
                 dbh.deleteSong(data.getId());
 
+                Toast.makeText(SongEdit.this, "Song deleted successful",
+                        Toast.LENGTH_SHORT).show();
+
+                Intent i = new Intent(SongEdit.this,
+                        SongList.class);
+                startActivity(i);
+            }
+        });
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent i = new Intent(SongEdit.this,
                         SongList.class);
                 startActivity(i);
