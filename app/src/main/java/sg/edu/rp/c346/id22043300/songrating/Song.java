@@ -50,6 +50,12 @@ public class Song implements Serializable {
         return "No. " + id + "\n Song title: " + title + "\n Singers: " + singers + "\n Year: " + year + "\n Rating: " + star + " star(s)";
 
     }
-
+    public String getStarRating() {
+        String starRating = "";
+        for (int i = 0; i < star; i++) {
+            starRating += " * ";
+        }
+        return starRating;
+    }
 }
 

@@ -33,7 +33,7 @@ public class SongList extends AppCompatActivity {
         ArrayList<Song> data = db.getSongs();
         db.close();
 
-        ArrayAdapter adapter =  new ArrayAdapter<>(SongList.this, android.R.layout.simple_list_item_1, data);
+        CustomAdapter adapter =  new CustomAdapter(SongList.this, R.layout.row, data);
         lv.setAdapter(adapter);
 
         btnback.setOnClickListener(new View.OnClickListener(){
